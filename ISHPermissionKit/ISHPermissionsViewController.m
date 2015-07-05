@@ -189,7 +189,7 @@
         // prepare incoming view controller:
         [self layoutChildViewControllerView:toViewController.view];
         [toViewController.view setTransform:CGAffineTransformMakeScale(0.8, 0.8)];
-        
+        toViewController.view.alpha = 0.0;
         [self transitionFromViewController:fromViewController
                           toViewController:toViewController
                                   duration:0.5
@@ -198,6 +198,7 @@
                                     [self.view bringSubviewToFront:fromViewController.view];
                                     [toViewController.view setTransform:CGAffineTransformIdentity];
                                     [fromViewController.view setTransform:CGAffineTransformMakeTranslation(0, fromViewController.view.bounds.size.height)];
+                                    toViewController.view.alpha = 1.0;
                                 }
          
                                 completion:^(BOOL finished) {
